@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "name": "tether-test",
+  "scripts": {
+    "build": "turbo build --no-daemon",
+    "start": "turbo start --no-daemon --parallel",
+    "lint": "turbo lint --no-daemon",
+    "format": "prettier --write \"**/*.{js,mjs,cjs,md}\""
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.2",
+    "eslint": "^8.49.0",
+    "eslint-config-custom": "workspace:*",
+    "prettier": "^3.0.3",
+    "prettier-config": "workspace:*",
+    "turbo": "^1.10.14"
+  },
+  "packageManager": "pnpm@8.6.6",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.17.1"
+  }
+}

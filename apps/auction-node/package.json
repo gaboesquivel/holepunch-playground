@@ -1,0 +1,27 @@
+{
+  "name": "auction-node",
+  "version": "1.1.0",
+  "description": "",
+  "main": "src/peer.mjs",
+  "repository": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "bootstrap": "hyperdht --bootstrap --host 127.0.0.1 --port 30001",
+    "start": "env-cmd node src/peer.mjs",
+    "lint": "eslint --ignore-path .gitignore \"**/*.+(mjs|js)\""
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
+  },
+  "dependencies": {
+    "@hyperswarm/rpc": "^3.2.2",
+    "b4a": "^1.6.1",
+    "graceful-goodbye": "^1.1.0",
+    "hyperbee": "^2.15.0",
+    "hypercore": "^10.24.11",
+    "hyperdht": "^6.6.1",
+    "hyperswarm": "^4.6.1",
+    "eslint-config-custom": "*"
+  }
+}

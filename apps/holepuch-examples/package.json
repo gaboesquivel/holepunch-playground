@@ -1,0 +1,35 @@
+{
+  "name": "single-page-walkthrough",
+  "version": "1.0.0",
+  "description": "An introduction to the Holepunch module ecosystem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holepunchto/quick-start.git"
+  },
+  "keywords": [
+    "holepunch",
+    "hypercore"
+  ],
+  "author": "Holepunch",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/holepunchto/quick-start/issues"
+  },
+  "homepage": "https://github.com/holepunchto/quick-start#readme",
+  "dependencies": {
+    "b4a": "^1.6.1",
+    "corestore": "^6.4.0",
+    "debounceify": "^1.0.0",
+    "graceful-goodbye": "^1.1.0",
+    "hyperbee": "^2.2.0",
+    "hypercore": "^10.5.3",
+    "hyperdht": "^6.5.2",
+    "hyperdrive": "^11.0.1",
+    "hyperswarm": "^4.3.5",
+    "localdrive": "^1.5.0"
+  }
+}
