@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "tether-test",
+  "name": "holepunch-playground",
   "scripts": {
     "build": "turbo build --no-daemon",
     "start": "turbo start --no-daemon --parallel",
@@ -20,7 +20,9 @@
     "apps/*",
     "packages/*"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "pm2": "^5.3.0"
+  },
   "engines": {
     "node": ">=18.17.1"
   }
