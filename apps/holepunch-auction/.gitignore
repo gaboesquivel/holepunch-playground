@@ -1,0 +1,7 @@
+.history
+dist/
+node_modules/
+*.log
+.env
+node_modules
+node-data
