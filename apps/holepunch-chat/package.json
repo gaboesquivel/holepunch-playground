@@ -1,0 +1,26 @@
+{
+  "name": "serverless-p2p-chat",
+  "version": "0.0.1",
+  "description": "Simple serverless, in-memory storage P2P chat client",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gvko/serverless-p2p-chat.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: not implemented\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Galin Kostov (dev@galin.cc)",
+  "license": "MIT",
+  "dependencies": {
+    "corestore": "^6.8.3",
+    "hyperswarm": "^4.5.1",
+    "random-access-memory": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.8",
+    "brittle": "^3.3.0",
+    "standard": "^17.1.0"
+  }
+}
