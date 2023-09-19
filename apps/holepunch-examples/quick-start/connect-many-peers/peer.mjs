@@ -14,6 +14,7 @@ swarm.on('connection', (conn) => {
   conns.push(conn)
   conn.once('close', () => conns.splice(conns.indexOf(conn), 1))
   conn.on('data', (data) => console.log(`${name}: ${data}`))
+  conn.on('error', (error) => console.log(`${name}: ${error}`))
 })
 
 // Broadcast stdin to all connections
