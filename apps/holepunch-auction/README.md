@@ -24,19 +24,19 @@ Once your node is up and running, you can use the following commands to interact
 - `newAuction`: Start a new auction. Example:
 
   ```bash
-  node index.js Client#1 newAuction '{"photoId": "Pic#3", "startingPrice": 50}'
+  node src/index.mjs Client#1 newAuction '{"photoId": "Pic#3", "startingPrice": 50}'
   ```
 
 - `newHighestBid`: Place a bid on an existing auction. Example:
 
   ```bash
-  node index.js Client#2 newHighestBid '{"auctionId": "Client#1->Pic#3", "bidAmount": 60}'
+  node src/index.mjs Client#2 newHighestBid '{"auctionId": "Client#1->Pic#3", "bidAmount": 60}'
   ```
 
 - `auctionClosed`: Close an auction. Example:
 
   ```bash
-  node index.js Client#1 auctionClosed '{"auctionId": "Client#1->Pic#3"}'
+  node src/index.mjs Client#1 auctionClosed '{"auctionId": "Client#1->Pic#3"}'
   ```
 
 ### Running a Scenario
@@ -44,7 +44,7 @@ Once your node is up and running, you can use the following commands to interact
 The code provides an example scenario that you can execute on a running node. The scenario includes creating auctions, placing bids, and closing auctions. To run the scenario on your node:
 
 ```bash
-node index.js Client#1 scenario
+node src/index.mjs Client#1 scenario
 ```
 
 ### Stopping the Node
