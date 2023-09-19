@@ -8,25 +8,14 @@ A fork of https://github.com/cjmont/p2p-auction
 
 ```bash
 pnpm install
-cd apps/holepunch-auction
-pnpm start Client#1
-# on a new termnial window
-pnpm start Client#2
 ```
 
 ## Usage
 
 ### Starting a Node
 
-To start a node in the P2P auction network, you should provide a unique `clientId` as a command-line argument. For example:
-
-```bash
-node index.js Client#1 
-# or
-pnpm start Client#1
-```
-
-Replace `Client#1` with the desired identifier for your node. Each node in the network must have a unique identifier.
+To start a node in the P2P auction network, you can provide a unique `clientName` as an env var. See `.env-sample`
+Replace `Client#1` with the desired identifier for your node, otherwise you will get a random name.
 
 ### Available Commands
 
