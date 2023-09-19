@@ -2,7 +2,6 @@ import hyperswarm from 'hyperswarm'
 import goodbye from 'graceful-goodbye'
 import b4a from 'b4a'
 import { executeCommand } from './auctions.mjs'
-import { runScenario } from './simulation.mjs'
 import { config } from './config.mjs'
 import { sleep, getRandomInt } from './lib.mjs'
 
@@ -48,7 +47,7 @@ async function main() {
           )
           conn.write(
             JSON.stringify({
-              action: 'auction_offer',
+              action: 'auction_bid',
               payload: {
                 clientName: config.clientName,
                 pictureId: getRandomInt(1, 100),

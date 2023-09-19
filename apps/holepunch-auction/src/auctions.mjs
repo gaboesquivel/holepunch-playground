@@ -2,14 +2,14 @@ import { getDb } from './hyperbee.mjs'
 
 export async function executeCommand(command, payload, clientId) {
   switch (command) {
-    case 'newAuction':
+    case 'new_auction':
       await handleNewAuction(payload, clientId)
       break
-    case 'newHighestBid':
-      await handleNewHighestBid(payload)
+    case 'auction_bid':
+      await handleNewBid(payload)
       break
-    case 'auctionClosed':
-      await handleAuctionClosed(payload, clientId)
+    case 'close_auction':
+      await handleCloseAuction(payload, clientId)
       break
     default:
       console.warn(`Unknown command received: ${command}`)
@@ -24,7 +24,7 @@ export async function handleNewAuction({ photoId, startingPrice }, clientId) {
   console.log(`New auction started by ${clientId} for ${photoId} with a starting price of ${startingPrice}`)
 }
 
-export async function handleNewHighestBid({ auctionId, clientId, bidAmount }) {
+export async function handleNewBid({ auctionId, clientId, bidAmount }) {
   const db = getDb(clientId)
   const data = await db.get(auctionId)
   if (data) {
@@ -35,7 +35,7 @@ export async function handleNewHighestBid({ auctionId, clientId, bidAmount }) {
   }
 }
 
-export async function handleAuctionClosed({ auctionId }, clientId) {
+export async function handleCloseAuction({ auctionId }, clientId) {
   const db = getDb(clientId)
   await db.del(auctionId)
   console.log(`The auction ${auctionId} has been closed.`)
