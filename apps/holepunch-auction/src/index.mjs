@@ -1,20 +1,24 @@
 import hyperswarm from 'hyperswarm'
-import crypto from 'crypto'
 import { executeCommand } from './auctions.mjs'
 import { runScenario } from './simulation.mjs'
 import { config } from './config.mjs'
 
-const topic = crypto.createHash('sha256').update('auctions').digest()
+// Join the auctions topic
+console.log('joining swarm topic ...')
 const swarm = new hyperswarm()
-swarm.join(topic, {
+const topic = Buffer.alloc(32).fill(config.topicKey) // A topic must be 32 bytes
+const discovery = swarm.join(topic, {
   lookup: true,
   announce: true,
 })
+console.log('wait for for the topic to be fully announced on the dht ...')
+await discovery.flushed() // Waits for the topic to be fully announced on the DHT
+console.log('ready !')
 
+// On connection run simulation once
 let execAuction = false
-
 swarm.on('connection', async (socket, peerInfo) => {
-  console.log('New connection!') // JSON.stringify(peerInfo)
+  console.log('new connection!') // JSON.stringify(peerInfo)
 
   if (!execAuction) {
     await runScenario(socket, config.clientName)
@@ -28,5 +32,9 @@ swarm.on('connection', async (socket, peerInfo) => {
     } catch (e) {
       console.error('Failed to process message', e)
     }
+  })
+
+  socket.on('error', async (error) => {
+    console.error('socket error', error)
   })
 })

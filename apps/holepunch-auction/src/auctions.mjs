@@ -1,4 +1,4 @@
-import { getDb } from './db.mjs'
+import { getDb } from './hyperbee.mjs'
 
 export async function executeCommand(command, payload, clientId) {
   switch (command) {

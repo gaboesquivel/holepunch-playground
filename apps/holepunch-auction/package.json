@@ -13,7 +13,7 @@
     "@hyperswarm/replicator": "^2.0.2",
     "@hyperswarm/rpc": "^3.2.2",
     "hyperbee": "^2.15.0",
-    "hypercore": "^10.24.10",
+    "hypercore": "^10.24.11",
     "hyperswarm": "^4.6.1"
   },
   "devDependencies": {
