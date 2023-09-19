@@ -6,7 +6,7 @@
     "start": "turbo start --no-daemon --parallel",
     "lint": "turbo lint --no-daemon",
     "format": "prettier --write \"**/*.{js,mjs,cjs,md}\"",
-    "challenge": "pm2 kill; pm2 flush; pm2 start && pm2 logs -f"
+    "challenge": "pm2 kill && pm2 flush && pm2 start && pm2 logs -f"
   },
   "devDependencies": {
     "@types/node": "^20.6.2",
