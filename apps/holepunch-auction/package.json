@@ -12,6 +12,7 @@
   "dependencies": {
     "@hyperswarm/replicator": "^2.0.2",
     "@hyperswarm/rpc": "^3.2.2",
+    "b4a": "^1.6.1",
     "graceful-goodbye": "^1.1.0",
     "hyperbee": "^2.15.0",
     "hypercore": "^10.24.11",

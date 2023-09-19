@@ -39,6 +39,9 @@ importers:
       '@hyperswarm/rpc':
         specifier: ^3.2.2
         version: 3.2.2
+      b4a:
+        specifier: ^1.6.1
+        version: 1.6.4
       graceful-goodbye:
         specifier: ^1.1.0
         version: 1.3.0

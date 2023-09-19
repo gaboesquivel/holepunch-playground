@@ -1,5 +1,6 @@
 import hyperswarm from 'hyperswarm'
 import goodbye from 'graceful-goodbye'
+import b4a from 'b4a'
 import { executeCommand } from './auctions.mjs'
 import { runScenario } from './simulation.mjs'
 import { config } from './config.mjs'
@@ -21,20 +22,37 @@ async function main() {
 
   // On connection run simulation once
   let execAuction = false
-  swarm.on('connection', async (socket, info) => {
-    console.log(`${config.clientName} has new connection!`) // JSON.stringify(info)
+  // Keep track of all connections and console.log incoming data
+  const conns = []
+  swarm.on('connection', async (conn, info) => {
     // console.log('swarm peers', swarm.peers.keys())
+    const connPubKey = b4a.toString(conn.remotePublicKey, 'hex')
+    console.log(`${config.clientName} has connected with ${connPubKey}!`)
+    conns.push(conn)
+    conn.once('close', () => conns.splice(conns.indexOf(conn), 1))
 
+    // testing p2p communication
+    conn.write(`hi ${connPubKey}, I'm ${config.clientName}`)
+    setTimeout(
+      () => {
+        for (const conn of conns) {
+          conn.write('lets make some p2p auctions folks')
+        }
+      },
+      getRandomInt(500, 5000)
+    )
+
+    conn.on('data', (data) => {
+      console.log(`${config.clientName} received data from ${connPubKey}`, data.toString())
+      // const { command, payload } = JSON.parse(data.toString())
+      // await executeCommand(command, payload, config.clientName)
+    })
+
+    // simulation on hyperbee db
     if (!execAuction) {
-      await runScenario(socket, config.clientName)
+      await runScenario(conn, config.clientName)
       execAuction = true
     }
-
-    socket.on('data', async (data) => {
-      const { command, payload } = JSON.parse(data.toString())
-      console.log(`${config.clientName} received data`, { command, payload })
-      await executeCommand(command, payload, config.clientName)
-    })
   })
 }
 
