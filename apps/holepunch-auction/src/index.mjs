@@ -21,8 +21,6 @@ async function main() {
   // await discovery.flushed()
   console.log(`${config.clientName} ready for connections!`)
 
-  // On connection run simulation once
-  let execAuction = false
   // Keep track of all connections and console.log incoming data
   const conns = []
   swarm.on('connection', async (conn, info) => {
@@ -48,12 +46,6 @@ async function main() {
       // const { command, payload } = JSON.parse(data.toString())
       // await executeCommand(command, payload, config.clientName)
     })
-
-    // simulation on hyperbee db
-    if (!execAuction) {
-      await runScenario(conn, config.clientName)
-      execAuction = true
-    }
   })
 }
 
