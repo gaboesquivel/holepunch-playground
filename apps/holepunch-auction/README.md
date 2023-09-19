@@ -18,3 +18,7 @@ Replace `Client#1` with the desired identifier for your node, otherwise you will
 ### Stopping the Node
 
 To stop the node, simply close the terminal window in which it is running.
+
+## Credits
+
+https://github.com/cjmont/p2p-auction

@@ -1,7 +1,7 @@
 import hyperswarm from 'hyperswarm'
 import goodbye from 'graceful-goodbye'
 import b4a from 'b4a'
-import { executeCommand } from './auctions.mjs'
+import { execAction } from './auctions.mjs'
 import { config } from './config.mjs'
 import { sleep, getRandomInt } from './lib.mjs'
 
@@ -72,7 +72,7 @@ async function main() {
     conn.on('data', (data) => {
       console.log(`${config.clientName} received data from ${connPubKey}`, data.toString())
       // const { command, payload } = JSON.parse(data.toString())
-      // await executeCommand(command, payload, config.clientName)
+      // await execAction(command, payload, config.clientName)
     })
   })
 }
