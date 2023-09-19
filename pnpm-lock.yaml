@@ -39,15 +39,22 @@ importers:
       '@hyperswarm/rpc':
         specifier: ^3.2.2
         version: 3.2.2
+      graceful-goodbye:
+        specifier: ^1.1.0
+        version: 1.3.0
       hyperbee:
         specifier: ^2.15.0
         version: 2.15.0
       hypercore:
-        specifier: ^10.24.10
+        specifier: ^10.24.11
         version: 10.24.11
       hyperswarm:
         specifier: ^4.6.1
         version: 4.6.1
+    devDependencies:
+      env-cmd:
+        specifier: ^10.1.0
+        version: 10.1.0
 
   apps/holepunch-chat:
     dependencies:
