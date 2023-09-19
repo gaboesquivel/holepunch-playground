@@ -16,8 +16,8 @@ async function main() {
   goodbye(() => swarm.destroy())
   const topic = Buffer.alloc(32).fill(config.topicKey) // A topic must be 32 bytes
   const discovery = swarm.join(topic, { server: true, client: true })
-  console.log(`${config.clientName} waits for the topic to be fully announced on the dht ...`)
-  await discovery.flushed()
+  // console.log(`${config.clientName} waits for the topic to be fully announced on the dht ...`)
+  // await discovery.flushed()
   console.log(`${config.clientName} ready for connections!`)
 
   // On connection run simulation once
