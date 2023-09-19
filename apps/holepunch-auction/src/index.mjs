@@ -36,6 +36,35 @@ async function main() {
       () => {
         for (const conn of conns) {
           conn.write('lets make some p2p auctions folks')
+          conn.write(
+            JSON.stringify({
+              action: 'new_auction',
+              payload: {
+                clientName: config.clientName,
+                pictureId: getRandomInt(1, 100),
+                initialPrice: getRandomInt(10000, 1000000), // cents
+              },
+            })
+          )
+          conn.write(
+            JSON.stringify({
+              action: 'auction_offer',
+              payload: {
+                clientName: config.clientName,
+                pictureId: getRandomInt(1, 100),
+                price: getRandomInt(10000, 1000000), // cents
+              },
+            })
+          )
+          conn.write(
+            JSON.stringify({
+              action: 'close_auction',
+              payload: {
+                clientName: config.clientName,
+                pictureId: getRandomInt(1, 100),
+              },
+            })
+          )
         }
       },
       getRandomInt(500, 5000)
