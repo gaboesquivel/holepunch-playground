@@ -37,3 +37,6 @@ yarn-error.log*
 
 # development 
 _dev
+
+# pm2 node-data
+node-data

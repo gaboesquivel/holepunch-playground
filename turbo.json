@@ -5,11 +5,7 @@
   ],
   "pipeline": {
     "lint": {},
-    "start": {
-      "dependsOn": [
-        "^bootstrap"
-      ]
-    },
+    "start": {},
     "dev": {
       "dependsOn": [
         "^bootstrap"

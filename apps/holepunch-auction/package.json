@@ -4,7 +4,7 @@
   "description": "p2p auction demo",
   "main": "src/index.mjs",
   "scripts": {
-    "start": "node src/index.mjs",
+    "start": "env-cmd node src/index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "CM",
@@ -15,5 +15,8 @@
     "hyperbee": "^2.15.0",
     "hypercore": "^10.24.10",
     "hyperswarm": "^4.6.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
   }
 }

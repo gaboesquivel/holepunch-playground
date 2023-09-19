@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      script: './apps/holepunch-node/src/index.mjs',
+      script: './apps/holepunch-auction/src/index.mjs',
       instances: 8,
       exec_mode: 'cluster',
     },
